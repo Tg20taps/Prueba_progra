@@ -327,11 +327,12 @@ def cover_page():
     # Título principal
     story.append(Paragraph("Informe Técnico", sty("CT1",
         fontSize=32, fontName="Helvetica-Bold", textColor=C_NAVY,
-        alignment=TA_CENTER, spaceAfter=4)))
+        alignment=TA_CENTER, leading=42, spaceAfter=10)))
+    story.append(Spacer(1, 0.3*cm))
     story.append(Paragraph(
         "Pipeline de Machine Learning para Logística y Transporte",
         sty("CT2", fontSize=15, fontName="Helvetica", textColor=C_BLUE,
-            alignment=TA_CENTER, spaceAfter=6, leading=22)))
+            alignment=TA_CENTER, spaceAfter=10, leading=24)))
     story.append(Spacer(1, 0.5*cm))
     story.append(HRFlowable(width="50%", thickness=2.5, color=C_NAVY,
                              hAlign="CENTER", spaceAfter=0.6*cm))
