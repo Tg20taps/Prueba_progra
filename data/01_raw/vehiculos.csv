@@ -1,0 +1,62 @@
+id_vehiculo,placa,tipo,capacidad_kg,capacidad_m3,año_fabricacion,estado_vehiculo,km_recorridos
+1.0,URLR-78,Camioneta,20000.0,49.2,2018.0,Operativo,267419.0
+2.0,DPYA-28,Furgón,5000.0,38.7,2019.0,Operativo,179180.0
+3.0,MAXQ-41,Camión,10000.0,69.4,2012.0,En mantención,478395.0
+4.0,SDEB-49,Camioneta,1000.0,,2017.0,Operativo,13823.0
+5.0,VCPV-18,SEMI-REMOLQUE,3000.0,42.4,2010.0,Operativo,154526.0
+6.0,VCMU-38,Camión,1000.0,74.9,2017.0,Fuera de servicio,145004.0
+7.0,BFIV-96,,10000.0,48.7,2022.0,Operativo,
+,KDRO-51,VAN,5000.0,45.4,2016.0,Fuera de servicio,215162.0
+9.0,VUTP-52,Van,5000.0,39.1,2022.0,Fuera de servicio,77965.0
+10.0,BHTE-57,Van,1000.0,20.7,2024.0,Operativo,431424.0
+11.0,OLYB-22,Van,20000.0,5.3,2017.0,Operativo,476196.0
+12.0,UQJE-72,  Furgón  ,20000.0,23.1,2010.0,Operativo,282654.0
+13.0,CAYS-85,Van,5000.0,,2015.0,Operativo,447261.0
+14.0,XKUU-98,Furgón,1000.0,33.5,2016.0,Operativo,151609.0
+15.0,DDHL-40,Furgón,,38.6,2023.0,Operativo,475899.0
+16.0,YPAE-73,Camioneta,1000.0,78.5,2020.0,Fuera de servicio,115935.0
+17.0,PCVH-63,FURGÓN,10000.0,31.3,2014.0,Operativo,341278.0
+18.0,AGDN-22,Furgón,20000.0,38.9,2023.0,En mantención,243705.0
+19.0,QWZN-69,Van,20000.0,15.0,2014.0,Operativo,344398.0
+20.0,URHF-29,  Furgón  ,10000.0,8.6,2016.0,Operativo,263978.0
+21.0,,Semi-remolque,,63.2,2024.0,Fuera de servicio,154854.0
+22.0,XBJF-42,  Van  ,10000.0,47.8,2020.0,Operativo,386924.0
+23.0,IUTB-16,Camión,1000.0,62.1,2024.0,Operativo,397688.0
+24.0,YEUM-24,Van,10000.0,16.2,2012.0,Operativo,337731.0
+25.0,BGLP-63,,1000.0,47.9,2015.0,En mantención,354382.0
+26.0,FRIU-51,Semi-remolque,5000.0,24.0,2016.0,Operativo,347864.0
+27.0,FGKF-38,Van,1000.0,22.1,2010.0,Operativo,88004.0
+28.0,BPBL-37,  Semi-remolque  ,,5.9,2021.0,Operativo,32072.0
+29.0,YLKD-34,Camión,10000.0,14.8,,Fuera de servicio,91015.0
+30.0,QZFD-98,Camión,1000.0,28.2,2021.0,Fuera de servicio,235075.0
+31.0,OHCM-63,CAMIONETA,3000.0,13.8,2013.0,Operativo,230010.0
+32.0,EIXP-91,Camioneta,5000.0,78.9,2022.0,En mantención,
+33.0,YXPO-39,Van,3000.0,28.1,2017.0,Operativo,186774.0
+34.0,CWMZ-85,Camioneta,3000.0,14.8,2020.0,Operativo,374404.0
+35.0,MMAL-41,Semi-remolque,3000.0,19.9,2022.0,Operativo,409273.0
+36.0,GLFY-29,Camioneta,5000.0,49.1,2023.0,Operativo,138259.0
+37.0,XXKB-70,  Semi-remolque  ,5000.0,9.8,2019.0,Operativo,40916.0
+38.0,TNLK-99,Camioneta,5000.0,69.7,2015.0,Operativo,37268.0
+,VLGO-11,Camioneta,5000.0,77.1,2010.0,Operativo,185050.0
+40.0,SKFJ-40,Camioneta,3000.0,23.5,2019.0,En mantención,253966.0
+41.0,QCMH-68,Furgón,,38.8,2014.0,Operativo,33259.0
+42.0,WTAL-27,Furgón,20000.0,6.7,2016.0,Operativo,456799.0
+43.0,WKUJ-69,Camioneta,5000.0,53.1,2024.0,Fuera de servicio,89400.0
+44.0,SAQK-98,Semi-remolque,10000.0,,2022.0,Operativo,306437.0
+45.0,IALH-88,Van,1000.0,25.3,2015.0,Operativo,
+46.0,OUUC-52,Camión,10000.0,20.5,2022.0,En mantención,17043.0
+47.0,TBYR-16,Furgón,10000.0,54.1,2022.0,,191502.0
+48.0,CJQJ-32,,10000.0,36.2,2021.0,Operativo,117009.0
+49.0,QSOU-27,Camión,20000.0,18.5,2018.0,,311037.0
+50.0,ZGCM-84,Furgón,,56.7,2017.0,En mantención,443858.0
+51.0,WSTT-51,Van,10000.0,47.4,2024.0,Operativo,219137.0
+52.0,JGRH-18,semi-remolque,5000.0,69.4,2013.0,En mantención,171940.0
+53.0,JLNV-70,Camioneta,20000.0,13.8,2022.0,Operativo,298453.0
+54.0,SRNH-89,VAN,5000.0,63.9,2020.0,Operativo,295428.0
+55.0,,  Furgón  ,5000.0,55.5,2021.0,En mantención,398945.0
+56.0,EWCK-32,Camioneta,10000.0,13.6,2014.0,Operativo,123259.0
+57.0,HYCH-99,Camión,5000.0,57.1,2016.0,Operativo,110804.0
+58.0,DDFY-12,Semi-remolque,1000.0,38.1,2017.0,Operativo,79000.0
+59.0,HZOD-54,  Furgón  ,5000.0,75.9,2014.0,En mantención,94179.0
+60.0,,,10000.0,15.6,2018.0,Operativo,
+60.0,,,10000.0,15.6,2018.0,Operativo,

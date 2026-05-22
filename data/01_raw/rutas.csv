@@ -1,0 +1,83 @@
+id_ruta,origen,destino,distancia_km,tiempo_estimado_hrs,tipo_via,peaje_total
+1.0,La Florida,Pucón,420.3,6.3,Camino Rural,13931.0
+2.0,,Castro,507.2,19.5,  Camino Rural  ,12065.0
+3.0,Rancagua,Rengo,679.6,18.4,Urbana,2447.0
+4.0,Temuco,Santiago,1182.4,9.6,  Autopista  ,3738.0
+5.0,Cauquenes,San Fernando,914.3,22.9,Camino Rural,5128.0
+,Castro,Angol,1492.8,21.9,Camino Rural,2524.0
+7.0,Rengo,Angol,435.0,23.1,Autopista,8725.0
+8.0,Osorno,Quilpué,31.2,10.6,AUTOPISTA,14632.0
+9.0,Osorno,Osorno,1555.3,5.1,  Ruta Nacional  ,
+10.0,Curicó,Curicó,1645.1,15.2,Urbana,6351.0
+11.0,La Serena,Rengo,128.4,16.6,Urbana,68.0
+12.0,Cauquenes,Los Ángeles,1225.7,3.4,Autopista,4699.0
+13.0,San Fernando,Santiago,762.6,19.0,,7901.0
+14.0,Los Ángeles,Valparaíso,1589.9,0.9,  Camino Rural  ,4864.0
+15.0,Talcahuano,Puerto Montt,1750.1,11.8,  Autopista  ,1666.0
+16.0,Santiago,San Antonio,1703.5,8.3,autopista,6641.0
+17.0,Maipú,Rancagua,1556.6,17.9,,3799.0
+18.0,Ovalle,,545.4,7.8,Ruta Nacional,13638.0
+19.0,Puerto Montt,Talca,1625.7,19.9,Urbana,1526.0
+20.0,Viña del Mar,,1071.6,14.5,Ruta Nacional,737.0
+21.0,,Valparaíso,115.0,19.2,Camino Rural,80.0
+22.0,Castro,Talca,919.3,23.7,  Urbana  ,4921.0
+23.0,Chillán,Valparaíso,1884.9,16.5,,9906.0
+24.0,Castro,Chillán,1776.8,,Autopista,10956.0
+25.0,Coquimbo,Concepción,213.5,1.2,Ruta Nacional,6799.0
+26.0,Rancagua,Los Ángeles,1490.8,8.4,Autopista,10265.0
+27.0,Chillán,Pucón,1613.5,3.0,Ruta Nacional,5399.0
+28.0,Las Condes,San Antonio,550.1,6.7,Ruta Nacional,10017.0
+29.0,Ovalle,Pucón,948.5,20.2,RUTA NACIONAL,609.0
+30.0,Linares,San Fernando,1424.9,1.3,  Autopista  ,5861.0
+31.0,Castro,Concepción,883.7,12.7,RUTA NACIONAL,11863.0
+32.0,Rancagua,Temuco,234.5,13.8,Urbana,12045.0
+33.0,Las Condes,Osorno,1414.7,13.7,Urbana,10742.0
+34.0,Ovalle,Rancagua,1824.2,11.7,  Urbana  ,3064.0
+35.0,Rancagua,Angol,1308.4,19.1,  Autopista  ,3708.0
+36.0,Ovalle,Chillán,1549.9,3.6,Autopista,14941.0
+37.0,Viña del Mar,San Antonio,723.1,7.8,Urbana,1551.0
+38.0,Pucón,Cauquenes,374.6,15.0,Urbana,2710.0
+39.0,Valparaíso,Chillán,,16.7,Urbana,1950.0
+40.0,Cauquenes,Viña del Mar,662.3,10.0,Camino Rural,4915.0
+41.0,Quilpué,Puerto Montt,1721.5,21.1,Urbana,3153.0
+42.0,La Florida,San Antonio,254.0,,Ruta Nacional,7465.0
+43.0,Puente Alto,Temuco,872.6,10.0,Camino Rural,7140.0
+44.0,Ovalle,Santiago,799.5,1.4,camino rural,13523.0
+45.0,Ovalle,Quilpué,1876.7,13.5,,521.0
+46.0,San Fernando,La Serena,314.7,,Ruta Nacional,4798.0
+47.0,San Fernando,La Serena,29.6,3.2,AUTOPISTA,8950.0
+48.0,Villarrica,Santiago,483.8,7.7,Autopista,9072.0
+49.0,Las Condes,Osorno,1642.4,18.9,Ruta Nacional,7202.0
+50.0,Angol,Los Ángeles,426.6,9.1,Autopista,12235.0
+51.0,Puente Alto,Castro,489.3,6.2,Ruta Nacional,941.0
+,Concepción,Las Condes,268.5,16.3,RUTA NACIONAL,12232.0
+53.0,Temuco,Coquimbo,1433.7,5.1,Autopista,7421.0
+54.0,Pucón,Osorno,147.7,21.5,Urbana,2006.0
+55.0,Viña del Mar,Viña del Mar,669.1,3.0,Autopista,13286.0
+56.0,Quilpué,Puente Alto,572.2,17.1,Camino Rural,9738.0
+57.0,Villarrica,La Serena,1114.8,12.2,AUTOPISTA,2453.0
+58.0,Angol,San Fernando,1463.5,20.9,Ruta Nacional,505.0
+59.0,Temuco,,1070.4,3.5,,2117.0
+60.0,Viña del Mar,Santiago,18627.0,16.4,,9132.0
+61.0,Chillán,Rengo,1903.4,,Urbana,2689.0
+62.0,Rancagua,Rancagua,,11.8,Urbana,3386.0
+63.0,Villarrica,Coquimbo,1557.6,12.0,CAMINO RURAL,377.0
+64.0,La Serena,Curicó,1480.2,17.5,Urbana,10844.0
+65.0,,Puente Alto,1787.0,22.5,Urbana,
+,Viña del Mar,Linares,901.4,2.6,Autopista,11953.0
+67.0,Chillán,Puerto Montt,1065.6,1.0,  Autopista  ,1914.0
+68.0,Osorno,,,19.4,Urbana,13550.0
+69.0,Cauquenes,San Antonio,1702.3,3.0,Urbana,10084.0
+70.0,Talcahuano,Curicó,467.1,23.7,Autopista,13463.0
+71.0,Rancagua,Maipú,487.0,15.1,urbana,6707.0
+72.0,Temuco,Las Condes,751.5,15.8,  Urbana  ,6554.0
+73.0,Maipú,,468.4,5.2,  Ruta Nacional  ,11768.0
+74.0,Coquimbo,Puerto Montt,1126.4,6.1,urbana,1399.0
+75.0,Coquimbo,,277.6,,CAMINO RURAL,7813.0
+76.0,Ovalle,La Serena,647.2,21.9,Ruta Nacional,12546.0
+77.0,Cauquenes,La Florida,1827.8,23.6,  Camino Rural  ,12453.0
+78.0,Osorno,La Florida,824.4,5.2,urbana,14342.0
+79.0,Villarrica,Puente Alto,1499.0,3.7,Autopista,10474.0
+80.0,Puerto Montt,Viña del Mar,235.8,1.8,ruta nacional,3117.0
+53.0,Temuco,Coquimbo,1433.7,5.1,Autopista,7421.0
+30.0,Linares,San Fernando,1424.9,1.3,  Autopista  ,5861.0
