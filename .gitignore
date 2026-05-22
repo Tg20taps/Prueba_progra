@@ -13,13 +13,7 @@ jupyter_log.txt
 # pytest cache
 .pytest_cache/
 
-# Incluir outputs de modelos y metricas (necesarios para la entrega)
-!data/06_models/
-!data/06_models/**
-!data/07_model_output/
-!data/07_model_output/**
-!data/05_model_input/
-!data/05_model_input/**
+# (las excepciones de data/ van debajo de la regla data/**)
 
 # ignore all local configuration
 conf/local/**
@@ -34,6 +28,14 @@ data/**
 
 # except their sub-folders
 !data/**/
+
+# Incluir outputs de modelos y metricas (necesarios para la entrega)
+!data/05_model_input/
+!data/05_model_input/**
+!data/06_models/
+!data/06_models/**
+!data/07_model_output/
+!data/07_model_output/**
 
 # also keep all .gitkeep files
 !.gitkeep
