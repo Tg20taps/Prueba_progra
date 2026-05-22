@@ -1,0 +1,6 @@
+metodo,parametros,n_clusters,n_ruido,silhouette_score,davies_bouldin_score,inertia,varianza_explicada
+KMeans,k=3,3,0.0,0.0815,2.7464,16065.407,
+KMeans,k=4,4,0.0,0.0792,2.631,15231.2016,
+KMeans,k=5,5,0.0,0.0816,2.5133,14667.2292,
+DBSCAN,"eps=2.5, min_samples=10",0,866.0,,,,
+PCA,n_components=2,5,,,,,0.2008

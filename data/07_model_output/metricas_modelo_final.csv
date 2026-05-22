@@ -1,0 +1,3 @@
+tipo_problema,modelo_final,etapa,cv_score,criterio_seleccion,accuracy,precision,recall,f1,roc_auc,tn,fp,fn,tp,mae,mse,rmse,r2
+clasificacion,11_GaussianNB,grid_search,0.2596,max_f1,0.2356,0.175,0.9655,0.2963,0.5063,13.0,132.0,1.0,28.0,,,,
+regresion,06_KNeighborsRegressor,grid_search,-1.4432,min_mae,,,,,,,,,,1.4374,2.6246,1.6201,0.1153

@@ -1,0 +1,6 @@
+cluster,n_envios,tasa_incidencia,peso_kg_promedio,distancia_km_promedio,tiempo_estimado_hrs_promedio,peaje_total_promedio,eficiencia_peso_promedio,interpretacion_negocio
+0,30,0.1667,6615.25,30.2933,6.4067,11412.2,1.4893,riesgo_operativo_medio
+1,63,0.1587,8573.046,1027.1492,12.3397,5960.8889,6.4712,riesgo_operativo_medio
+2,143,0.1748,7885.5021,947.3811,12.3469,6899.2867,0.5826,riesgo_operativo_medio
+3,286,0.1503,6994.3621,1040.7108,12.7413,6632.6014,1.2045,riesgo_operativo_medio
+4,344,0.1831,6591.7406,953.8172,12.134,7018.1221,1.2283,riesgo_operativo_medio

@@ -1,0 +1,7 @@
+tipo_problema,modelo,search,scoring,n_combinaciones,best_score_cv,best_params
+clasificacion,11_GaussianNB,GridSearchCV,f1,5,0.2596,"{""modelo__var_smoothing"": 1e-11}"
+clasificacion,02_LogisticRegression,GridSearchCV,f1,4,0.2571,"{""modelo__C"": 0.1, ""modelo__penalty"": ""l2"", ""modelo__solver"": ""liblinear""}"
+clasificacion,15_SGDClassifier,GridSearchCV,f1,12,0.2535,"{""modelo__alpha"": 0.0001, ""modelo__loss"": ""log_loss"", ""modelo__penalty"": ""elasticnet""}"
+regresion,06_KNeighborsRegressor,GridSearchCV,neg_mean_absolute_error,20,-1.4432,"{""modelo__n_neighbors"": 9, ""modelo__p"": 2, ""modelo__weights"": ""uniform""}"
+regresion,04_Lasso,GridSearchCV,neg_mean_absolute_error,4,-1.5037,"{""modelo__alpha"": 0.2}"
+regresion,05_ElasticNet,GridSearchCV,neg_mean_absolute_error,12,-1.5048,"{""modelo__alpha"": 0.2, ""modelo__l1_ratio"": 0.7}"
