@@ -1,0 +1,144 @@
+# =============================================================================
+# PARAMETERS — Pipeline Logística de Transportes (SCY1101)
+# =============================================================================
+# Centralizar los parámetros aquí garantiza reproducibilidad: cualquier
+# umbral o configuración se cambia en un solo lugar sin tocar el código.
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Data Cleaning — Tratamiento de outliers
+# ---------------------------------------------------------------------------
+outliers:
+  # Multiplicador del IQR para detectar outliers (método de Tukey)
+  # Valor estándar = 1.5; se aumenta a 2.0 para ser más conservadores
+  # en logística, donde cargas grandes son válidas
+  iqr_multiplier: 2.0
+  # Columnas numéricas donde aplicar el filtro IQR
+  columnas_peso: ["peso_kg", "volumen_m3"]
+
+# ---------------------------------------------------------------------------
+# Data Cleaning — Valores a imputar
+# ---------------------------------------------------------------------------
+imputacion:
+  # Estrategia para id_ruta nulos: "moda" (valor más frecuente)
+  id_ruta_estrategia: "moda"
+  # Estrategia para capacidad_m3 nulos: "mediana" por tipo de vehículo
+  capacidad_m3_estrategia: "mediana"
+  # Origen desconocido cuando el campo es nulo
+  origen_desconocido: "Desconocido"
+
+# ---------------------------------------------------------------------------
+# Data Transformation — Encoding categórico
+# ---------------------------------------------------------------------------
+encoding:
+  # Columnas que van a Label Encoding (ordinales o de baja cardinalidad)
+  label_encode_cols:
+    - "estado"
+    - "tipo_via_encoded"
+  # Columnas que van a One-Hot Encoding
+  onehot_cols:
+    - "tipo_carga"
+
+# ---------------------------------------------------------------------------
+# Data Transformation — Normalización
+# ---------------------------------------------------------------------------
+normalizacion:
+  # Columnas a normalizar con Min-Max Scaler
+  columnas_minmax:
+    - "peso_kg"
+    - "volumen_m3"
+    - "distancia_km"
+    - "tiempo_estimado_hrs"
+    - "peaje_total"
+    - "km_recorridos"
+    - "costo_impacto_total"
+
+# ---------------------------------------------------------------------------
+# Data Validation — Rangos esperados post-limpieza
+# ---------------------------------------------------------------------------
+validacion:
+  # Rango válido para peso_kg después de limpiar outliers (en kg)
+  peso_kg_min: 1.0
+  peso_kg_max: 25000.0
+  # Rango válido para distancia_km
+  distancia_km_min: 1.0
+  distancia_km_max: 5000.0
+  # Rango válido para eficiencia de peso (ratio 0 a 1)
+  eficiencia_peso_min: 0.0
+  eficiencia_peso_max: 10.0  # FIX Fase0: en logística puede superar 1.0; 2.0 generaba 471 falsos ERRORes (47.77% del dataset)
+  # Días máximos de tránsito esperados
+  dias_transito_max: 30
+  # Columnas que NO deben tener nulos en el dataset maestro final
+  columnas_sin_nulos:
+    - "id_envio"
+    - "fecha_envio"
+    - "id_ruta"
+    - "id_vehiculo"
+    - "peso_kg"
+    - "tipo_carga_norm"
+    - "estado"
+
+# ---------------------------------------------------------------------------
+# Model Input — Preparación de datasets para machine learning (Fase 1 EP2)
+# ---------------------------------------------------------------------------
+model_input:
+  # Targets de cada problema supervisado
+  target_clasificacion: "tiene_incidencia"
+  target_regresion: "dias_en_transito"
+
+  # Data leakage confirmado (README maestro sección 9)
+  columnas_leakage:
+    - "total_incidencias"
+    - "costo_impacto_total"
+    - "tipos_incidencia"
+    - "costo_impacto_total_norm"
+
+  # Post-evento para clasificación (disponibles solo DESPUÉS del envío)
+  columnas_post_evento_clasificacion:
+    - "fecha_entrega"
+    - "dias_en_transito"
+
+  # Semilla reproducibilidad (sklearn, train_test_split)
+  random_state: 42
+
+  # Features numéricas (imputar con mediana)
+  features_numericas:
+    - "peso_kg"
+    - "volumen_m3"
+    - "distancia_km"
+    - "tiempo_estimado_hrs"
+    - "peaje_total"
+    - "capacidad_kg"
+    - "capacidad_m3"
+    - "km_recorridos"
+    - "eficiencia_peso"
+    - "eficiencia_volumen"
+    - "costo_por_km"
+
+  # Features categóricas (imputar con moda)
+  features_categoricas:
+    - "tipo_carga_norm"
+    - "tipo_via"
+    - "tipo"
+    - "estado_vehiculo"
+    - "estado"
+    - "origen"
+    - "destino"
+
+# ---------------------------------------------------------------------------
+# Hyperparameter Tuning - Optimizacion de finalistas (Fase 5 EP2)
+# ---------------------------------------------------------------------------
+hyperparameter_tuning:
+  random_state: 42
+  test_size: 0.2
+  cv_splits: 5
+  randomized_n_iter: 12
+
+# ---------------------------------------------------------------------------
+# Unsupervised Learning - Segmentacion operativa (Fase 6 EP2)
+# ---------------------------------------------------------------------------
+unsupervised_learning:
+  random_state: 42
+  kmeans_k_values: [3, 4, 5]
+  dbscan_eps: 2.5
+  dbscan_min_samples: 10

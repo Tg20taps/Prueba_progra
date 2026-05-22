@@ -1,0 +1,353 @@
+# =============================================================================
+# DATA CATALOG — Pipeline Logística de Transportes (SCY1101)
+# =============================================================================
+# Organizado según las capas de datos de Kedro:
+#   01_raw         → datos originales sin modificar
+#   02_intermediate → datasets limpios (post data_cleaning)
+#   03_primary      → dataset maestro consolidado (post data_transformation)
+#   08_reporting    → reportes de calidad e ingesta
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# CAPA 01_RAW — Datos originales (solo lectura)
+# ---------------------------------------------------------------------------
+envios_raw:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/envios.csv
+  load_args:
+    encoding: utf-8
+    sep: ","
+
+rutas_raw:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/rutas.csv
+  load_args:
+    encoding: utf-8
+    sep: ","
+
+vehiculos_raw:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/vehiculos.csv
+  load_args:
+    encoding: utf-8
+    sep: ","
+
+incidencias_raw:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/incidencias.csv
+  load_args:
+    encoding: utf-8
+    sep: ","
+
+# ---------------------------------------------------------------------------
+# CAPA 02_INTERMEDIATE — Datos limpios (salida de data_cleaning)
+# ---------------------------------------------------------------------------
+envios_clean:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/envios_clean.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+rutas_clean:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/rutas_clean.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+vehiculos_clean:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/vehiculos_clean.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+incidencias_clean:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/incidencias_clean.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+# ---------------------------------------------------------------------------
+# CAPA 03_PRIMARY — Datasets de transformación y dataset maestro
+# ---------------------------------------------------------------------------
+dataset_unificado:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/dataset_unificado.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+dataset_con_features:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/dataset_con_features.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+dataset_encoded:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/dataset_encoded.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+master_envios:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/master_envios.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+# ---------------------------------------------------------------------------
+# CAPA 05_MODEL_INPUT — Datasets listos para entrenar modelos
+# NOTA: features_ml_base es MemoryDataset (no persiste en disco;
+#       vive solo durante la ejecución del pipeline model_input).
+# ---------------------------------------------------------------------------
+model_input_clasificacion:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/model_input_clasificacion.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+model_input_regresion:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/model_input_regresion.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+# ---------------------------------------------------------------------------
+# CAPA 07_MODEL_OUTPUT — Rankings, resultados de modelos y optimizacion
+# ---------------------------------------------------------------------------
+ranking_modelos_clasificacion:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/ranking_modelos_clasificacion.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+ranking_modelos_regresion:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/ranking_modelos_regresion.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+# Resultados de optimizacion de hiperparametros
+resultados_randomizedsearch:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/resultados_randomizedsearch.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+resultados_gridsearch:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/resultados_gridsearch.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+comparacion_optimizacion:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/comparacion_optimizacion.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+metricas_modelo_final:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/metricas_modelo_final.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+# Resultados de aprendizaje no supervisado
+perfil_clusters:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/perfil_clusters.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+metricas_clustering:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/metricas_clustering.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+clusters_pca:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/clusters_pca.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+# Modelos finales serializados
+modelo_final_clasificacion:
+  type: pickle.PickleDataset
+  filepath: data/06_models/modelo_final_clasificacion.pkl
+  backend: pickle
+
+modelo_final_regresion:
+  type: pickle.PickleDataset
+  filepath: data/06_models/modelo_final_regresion.pkl
+  backend: pickle
+
+# ---------------------------------------------------------------------------
+
+# Perfiles de ingesta por dataset
+perfil_envios:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/perfil_envios.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+perfil_rutas:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/perfil_rutas.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+perfil_vehiculos:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/perfil_vehiculos.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+perfil_incidencias:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/perfil_incidencias.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+# Reporte consolidado de ingesta
+ingestion_report:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/ingestion_report.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+# Resultados individuales de validación
+resultado_esquema:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/resultado_esquema.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+resultado_integridad:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/resultado_integridad.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+resultado_rangos:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/resultado_rangos.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+resultado_nulos:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/resultado_nulos.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+resultado_pandera:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/resultado_pandera.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+# Reporte de preparación del dataset ML
+model_input_report:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/model_input_report.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
+
+# Reporte consolidado de validación
+validation_report:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/validation_report.csv
+  load_args:
+    encoding: latin-1
+  save_args:
+    index: false
+    encoding: utf-8
