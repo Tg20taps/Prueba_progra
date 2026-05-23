@@ -10,16 +10,16 @@
 
 ---
 
-### [00:00 - 01:00] Fase 1: Arquitectura y Datos Crudos (Notebook 1)
-*(Acción visual: Muestra rápidamente tu terminal con el log de Kedro, luego cambia a la pestaña del **Notebook 1** y scrollea por los gráficos de nulos/outliers).*
+### [00:00 - 01:00] Fase 1: Arquitectura y Datos Crudos (Notebook 1 — `01_eda_exploratorio`)
+*(Acción visual: Muestra rápidamente tu terminal con el log de Kedro, luego cambia a la pestaña del **Notebook 1** (`01_eda_exploratorio.ipynb`) y scrollea por los gráficos de nulos/outliers).*
 
 > "Hola, el profesor me indicó que debo tener todo ejecutado. Como ven aquí en mi terminal, el pipeline de Kedro ya procesó toda la ingesta y el entrenamiento de los modelos exitosamente. 
 > 
 > Todo este trabajo experimental lo consolidé en una secuencia del Notebook 1 al 6. Si miramos el **Notebook 1**, al analizar los datos crudos, detecté problemas severos: un 10% de nulos en variables clave, distancias imposibles de más de 18,000 km, y fuga de información (data leakage). 
 > Resolví esto aplicando imputación por mediana, recorte de outliers con el método IQR y eliminando las variables contaminadas, lo que me garantizó un dataset 100% limpio para modelar."
 
-### [01:00 - 03:00] Fase 2: Modelado No Supervisado (Notebook 2 y 3)
-*(Acción visual: Cambia al **Notebook de Clustering**. Muestra el gráfico de codo/silhouette, y luego el dataframe o gráfico con los 5 clusters).*
+### [01:00 - 03:00] Fase 2: Modelado No Supervisado (Notebook 5 — `05_unsupervised_learning`)
+*(Acción visual: Cambia al **Notebook 5** (`05_unsupervised_learning.ipynb`). Muestra el gráfico de codo/silhouette, y luego el dataframe o gráfico con los 5 clusters).*
 
 > "Pasando a la fase No Supervisada, probamos 3 algoritmos para entender nuestros datos operativos: PCA, DBSCAN y KMeans.
 > 
@@ -27,8 +27,8 @@
 > 
 > La solución ganadora fue **KMeans**. Le pedimos al algoritmo agrupar los datos por similitud. El método del codo nos llevó a usar **K=5 clusters**. Aunque matemáticamente se solapan un poco, a nivel de negocio es súper útil: logró aislar en el 'Cluster 4' a los envíos de larga distancia que concentran la mayor tasa histórica de incidencias, dándonos un foco claro de dónde intervenir."
 
-### [02:30 - 04:30] Fase 3: Clasificación y los Top 5 Modelos (Notebook 4)
-*(Acción visual: Cambia al **Notebook de Clasificación**. Muestra la celda donde está el ranking de modelos o la matriz de confusión del ganador).*
+### [02:30 - 04:30] Fase 3: Clasificación y los Top 5 Modelos (Notebook 2 — `02_supervised_modeling`)
+*(Acción visual: Cambia al **Notebook 2** (`02_supervised_modeling.ipynb`). Muestra la celda donde está el ranking de modelos de clasificación o la matriz de confusión del ganador).*
 
 > "Ahora entramos al aprendizaje Supervisado, empezando por Clasificación para predecir si un envío tendrá incidencias. 
 > Como ven en la tabla del Notebook, evalué rigurosamente **15 algoritmos distintos** con validación cruzada para asegurar una evaluación exhaustiva. Aquí en pantalla les muestro los resultados ordenados.
@@ -41,8 +41,8 @@
 > 
 > Mi modelo ganador fue **GaussianNB (Naïve Bayes)**. Como pueden ver en sus métricas tras optimizarlo, logró un **Recall del 96.6%**. Decidí elegirlo porque en nuestro negocio es preferible revisar un camión por falsa alarma, que dejar pasar un camión que realmente va a quedar varado. Este modelo funciona como un radar preventivo excelente."
 
-### [04:30 - 06:30] Fase 4: Regresión y los Top 5 Modelos (Notebook 5)
-*(Acción visual: Cambia al **Notebook de Regresión**. Muestra el ranking de los 5 modelos de regresión y las métricas de KNN).*
+### [04:30 - 06:30] Fase 4: Regresión y los Top 5 Modelos (Notebook 3 — `03_model_evaluation`)
+*(Acción visual: Cambia al **Notebook 3** (`03_model_evaluation.ipynb`). Muestra el ranking de los modelos de regresión y las métricas de KNN).*
 
 > "Finalmente, apliqué Regresión para estimar los 'Días en tránsito'. Al igual que en clasificación, entrené y comparé **15 modelos de regresión** distintos. Aquí en el Notebook pueden ver la tabla completa con el ranking de resultados.
 > 
@@ -50,8 +50,8 @@
 > 
 > Aún así, tras la optimización de hiperparámetros, el ganador fue **KNeighborsRegressor (KNN)** con K=9. Lo elegí porque entregó el error más bajo constante, con un **MAE de 1.44 días**. Esto significa que podemos darle al cliente una ventana de entrega de un día y medio de precisión, que es el máximo potencial que estos datos pueden darnos."
 
-### [06:30 - 07:00] Fase 5: Conclusión (Notebook 6)
-*(Acción visual: Cambia al **Notebook 6** o muestra el PDF generado).*
+### [06:30 - 07:00] Fase 5: Conclusión (Notebook 6 — `06_final_analysis`)
+*(Acción visual: Cambia al **Notebook 6** (`06_final_analysis.ipynb`) o muestra el PDF generado).*
 
 > "Para cerrar, en el Notebook 6 consolido cómo pasamos de un dataset desastroso a un pipeline funcional con métricas claras. Elegimos KMeans para segmentar, GaussianNB para predecir riesgos y KNN para estimar tiempos, todo respaldado por la validación cruzada.
 > 
