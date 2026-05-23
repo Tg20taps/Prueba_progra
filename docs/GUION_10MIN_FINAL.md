@@ -1,58 +1,95 @@
-# Guion de Presentación Visual (Duración: 5 - 7 minutos)
+# 🎤 GUION DE PRESENTACIÓN — Matías Retamal
 **Materia:** SCY1101 — Programación para la Ciencia de Datos
-**Estudiante:** Matías Retamal
-
-*Este guion está diseñado para que hables MIENTRAS cambias de pestaña mostrando tus Notebooks ya ejecutados. Es dinámico y directo al grano.*
-
-### 0. PREPARACIÓN ANTES DE PRESENTAR (Lo que debes tener abierto)
-1. **VS Code / Jupyter:** Debes tener los 6 Notebooks abiertos en pestañas. **TODOS deben estar ejecutados previamente** (todas las celdas deben mostrar los gráficos y tablas ya cargadas).
-2. **Terminal:** Tener una terminal abierta que muestre el final de un `kedro run` exitoso, para probar que el código completo corre.
+**Duración:** 5 a 7 minutos
 
 ---
 
-### [00:00 - 01:00] Fase 1: Arquitectura y Datos Crudos (Notebook 1 — `01_eda_exploratorio`)
-*(Acción visual: Muestra rápidamente tu terminal con el log de Kedro, luego cambia a la pestaña del **Notebook 1** (`01_eda_exploratorio.ipynb`) y scrollea por los gráficos de nulos/outliers).*
+## ⚙️ ANTES DE EMPEZAR — Tener listo:
+- ✅ Terminal con un `kedro run` ya ejecutado (que se vea el log exitoso)
+- ✅ Jupyter Lab con los 6 notebooks abiertos en pestañas, **todos ya ejecutados** (con gráficos y tablas visibles)
+- ✅ Orden de las pestañas: NB1 → NB2 → NB3 → NB4 → NB5 → NB6
 
-> "Hola, el profesor me indicó que debo tener todo ejecutado. Como ven aquí en mi terminal, el pipeline de Kedro ya procesó toda la ingesta y el entrenamiento de los modelos exitosamente. 
-> 
-> Todo este trabajo experimental lo consolidé en una secuencia del Notebook 1 al 6. Si miramos el **Notebook 1**, al analizar los datos crudos, detecté problemas severos: un 10% de nulos en variables clave, distancias imposibles de más de 18,000 km, y fuga de información (data leakage). 
-> Resolví esto aplicando imputación por mediana, recorte de outliers con el método IQR y eliminando las variables contaminadas, lo que me garantizó un dataset 100% limpio para modelar."
+---
 
-### [01:00 - 03:00] Fase 2: Modelado No Supervisado (Notebook 5 — `05_unsupervised_learning`)
-*(Acción visual: Cambia al **Notebook 5** (`05_unsupervised_learning.ipynb`). Muestra el gráfico de codo/silhouette, y luego el dataframe o gráfico con los 5 clusters).*
+## [00:00 – 01:00] FASE 1 — Arquitectura y Datos
+📌 *Muestra la terminal con el log de kedro run. Luego cambia al Notebook 1 (`01_eda_exploratorio`) y scrollea lento por los gráficos.*
 
-> "Pasando a la fase No Supervisada, probamos 3 algoritmos para entender nuestros datos operativos: PCA, DBSCAN y KMeans.
-> 
-> Primero usamos **PCA (Análisis de Componentes Principales)** para intentar aplastar nuestras 25 variables en solo 2 dimensiones y graficarlas. Luego probamos **DBSCAN**, que agrupa datos por densidad (como pintando con un spray zonas muy juntas). Sin embargo, falló porque en logística los datos son muy dispersos y marcó casi todo como ruido.
-> 
-> La solución ganadora fue **KMeans**. Le pedimos al algoritmo agrupar los datos por similitud. El método del codo nos llevó a usar **K=5 clusters**. Aunque matemáticamente se solapan un poco, a nivel de negocio es súper útil: logró aislar en el 'Cluster 4' a los envíos de larga distancia que concentran la mayor tasa histórica de incidencias, dándonos un foco claro de dónde intervenir."
+**Di esto:**
+"Como ven en la terminal, el pipeline de Kedro procesó todo exitosamente. El proyecto tiene 8 pipelines encadenados que van desde la ingesta de datos hasta el entrenamiento de modelos.
 
-### [02:30 - 04:30] Fase 3: Clasificación y los Top 5 Modelos (Notebook 2 — `02_supervised_modeling`)
-*(Acción visual: Cambia al **Notebook 2** (`02_supervised_modeling.ipynb`). Muestra la celda donde está el ranking de modelos de clasificación o la matriz de confusión del ganador).*
+En el Notebook 1, analicé los datos crudos. Encontré problemas serios: un 10% de nulos en columnas clave, distancias imposibles de más de 18.000 km, y fuga de información que contaminaría los modelos.
 
-> "Ahora entramos al aprendizaje Supervisado, empezando por Clasificación para predecir si un envío tendrá incidencias. 
-> Como ven en la tabla del Notebook, evalué rigurosamente **15 algoritmos distintos** con validación cruzada para asegurar una evaluación exhaustiva. Aquí en pantalla les muestro los resultados ordenados.
-> 
-> *(Acción visual: Detente en la tabla donde se ven los 15 algoritmos. Apunta con el mouse a modelos como Random Forest o SVM)*
-> 
-> Para que vean la profundidad técnica, evaluamos algoritmos avanzados como **Random Forest** (que funciona creando 100 árboles de decisión que votan para evitar sobreajuste), **Gradient Boosting** (que aprende secuencialmente de sus propios errores iteración tras iteración) y **Support Vector Machines (SVM)** (que eleva los datos a múltiples dimensiones para encontrar la frontera matemática perfecta de separación).
-> 
-> Sin embargo, el problema principal era el desbalanceo: casi no había incidencias registradas. Por eso, mi métrica clave no fue el Accuracy, sino el **Recall**. 
-> 
-> Mi modelo ganador fue **GaussianNB (Naïve Bayes)**. Como pueden ver en sus métricas tras optimizarlo, logró un **Recall del 96.6%**. Decidí elegirlo porque en nuestro negocio es preferible revisar un camión por falsa alarma, que dejar pasar un camión que realmente va a quedar varado. Este modelo funciona como un radar preventivo excelente."
+Lo resolví con imputación por mediana, recorte de outliers con IQR, y eliminé 4 columnas con data leakage. El resultado: 866 registros limpios para clasificación y 790 para regresión, ambos con cero nulos."
 
-### [04:30 - 06:30] Fase 4: Regresión y los Top 5 Modelos (Notebook 3 — `03_model_evaluation`)
-*(Acción visual: Cambia al **Notebook 3** (`03_model_evaluation.ipynb`). Muestra el ranking de los modelos de regresión y las métricas de KNN).*
+---
 
-> "Finalmente, apliqué Regresión para estimar los 'Días en tránsito'. Al igual que en clasificación, entrené y comparé **15 modelos de regresión** distintos. Aquí en el Notebook pueden ver la tabla completa con el ranking de resultados.
-> 
-> La problemática aquí fue que ningún modelo superaba con gran margen al promedio básico, porque nos falta data externa como clima o tráfico. 
-> 
-> Aún así, tras la optimización de hiperparámetros, el ganador fue **KNeighborsRegressor (KNN)** con K=9. Lo elegí porque entregó el error más bajo constante, con un **MAE de 1.44 días**. Esto significa que podemos darle al cliente una ventana de entrega de un día y medio de precisión, que es el máximo potencial que estos datos pueden darnos."
+## [01:00 – 02:30] FASE 2 — Clustering (No Supervisado)
+📌 *Cambia al Notebook 5 (`05_unsupervised_learning`). Muestra el gráfico del codo y el gráfico de los 5 clusters.*
 
-### [06:30 - 07:00] Fase 5: Conclusión (Notebook 6 — `06_final_analysis`)
-*(Acción visual: Cambia al **Notebook 6** (`06_final_analysis.ipynb`) o muestra el PDF generado).*
+**Di esto:**
+"En aprendizaje no supervisado probé 3 técnicas: PCA, DBSCAN y KMeans.
 
-> "Para cerrar, en el Notebook 6 consolido cómo pasamos de un dataset desastroso a un pipeline funcional con métricas claras. Elegimos KMeans para segmentar, GaussianNB para predecir riesgos y KNN para estimar tiempos, todo respaldado por la validación cruzada.
-> 
-> El código está 100% probado en Kedro y documentado. Muchas gracias y quedo atento a sus dudas."
+PCA me permitió visualizar los datos en 2 dimensiones. DBSCAN falló porque en logística los datos son muy dispersos y los marcó casi todos como ruido.
+
+La solución ganadora fue KMeans con K=5 clusters. El método del codo me indicó ese número óptimo. El resultado es útil para el negocio: el Cluster 4, con 344 envíos, concentra la tasa más alta de incidencias, el 18.3%, lo que lo convierte en el grupo prioritario de monitoreo."
+
+---
+
+## [02:30 – 04:00] FASE 3 — Clasificación (Supervisado)
+📌 *Cambia al Notebook 2 (`02_supervised_modeling`). Muestra la tabla con el ranking de los 15 modelos de clasificación.*
+
+**Di esto:**
+"Para clasificación, el objetivo es predecir si un envío va a tener una incidencia. Entrené y comparé 15 algoritmos con validación cruzada StratifiedKFold de 5 folds.
+
+Incluí modelos avanzados como Random Forest, Gradient Boosting y SVM. Sin embargo, el problema principal era el desbalanceo de clases: solo el 17% de los envíos tenían incidencia. Por eso, mi métrica principal fue el Recall, no el Accuracy.
+
+El ganador fue GaussianNB. Tras optimizarlo con GridSearch, alcanzó un Recall del 96.6%, es decir, detecta 97 de cada 100 incidencias reales. Lo elegí porque en logística es preferible revisar un envío innecesariamente que dejar pasar uno que va a fallar."
+
+---
+
+## [04:00 – 05:30] FASE 4 — Regresión (Supervisado)
+📌 *Cambia al Notebook 3 (`03_model_evaluation`). Muestra el ranking de los 15 modelos de regresión y las métricas del KNN.*
+
+**Di esto:**
+"Para regresión, el objetivo es estimar los días de tránsito de un envío. Igual que en clasificación, comparé 15 modelos con validación cruzada KFold de 5 folds.
+
+El hallazgo honesto aquí es que los datos disponibles tienen un poder predictivo limitado: el mejor modelo mejora al baseline solo por 0.04 días. Esto se debe a que faltan variables externas como clima o tráfico.
+
+Aún así, el ganador fue KNeighborsRegressor con K=9, con un MAE de 1.44 días. Esto significa que el modelo puede darle al cliente una ventana de entrega con un margen de día y medio de error, que es lo máximo que estos datos permiten."
+
+---
+
+## [05:30 – 06:30] FASE 5 — Optimización
+📌 *Cambia al Notebook 4 (`04_hyperparameter_optimization`). Muestra los resultados de GridSearch y RandomizedSearch.*
+
+**Di esto:**
+"Apliqué los dos métodos de optimización requeridos.
+
+RandomizedSearchCV hizo una exploración amplia con 12 iteraciones por modelo para encontrar la zona prometedora del espacio de hiperparámetros. Luego, GridSearchCV hizo la búsqueda fina dentro de esa zona.
+
+En clasificación, el GaussianNB optimizado mejoró el Recall de 93% a 96.6%. En regresión, el KNN optimizado duplicó el R² de 0.062 a 0.115. Ambas optimizaciones tuvieron impacto real y medible."
+
+---
+
+## [06:30 – 07:00] CIERRE
+📌 *Cambia al Notebook 6 (`06_final_analysis`) o muestra el informe PDF.*
+
+**Di esto:**
+"Para cerrar: partimos de datos con errores graves y construimos un pipeline reproducible en Kedro con 15 modelos de clasificación, 15 de regresión, y clustering con 3 técnicas.
+
+Las recomendaciones concretas son: usar GaussianNB como sistema de alerta antes del despacho, KNN para estimar tiempos de entrega, y priorizar el monitoreo del Cluster 4.
+
+El código está documentado y es 100% reproducible. Muchas gracias."
+
+---
+
+## 📋 RESUMEN RÁPIDO — Qué notebook abrir en cada fase
+
+| Fase | Notebook | Qué mostrar |
+|------|----------|-------------|
+| FASE 1 | `01_eda_exploratorio` | Gráficos de nulos y outliers |
+| FASE 2 | `05_unsupervised_learning` | Gráfico del codo + 5 clusters |
+| FASE 3 | `02_supervised_modeling` | Tabla con 15 modelos de clasificación |
+| FASE 4 | `03_model_evaluation` | Tabla con 15 modelos de regresión |
+| FASE 5 | `04_hyperparameter_optimization` | Resultados GridSearch y RandomizedSearch |
+| CIERRE | `06_final_analysis` | Resumen final |
